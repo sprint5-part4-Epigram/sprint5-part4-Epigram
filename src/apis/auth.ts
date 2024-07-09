@@ -1,4 +1,4 @@
-import { SignUpResponseType, SignUpRequestType, SignInResponseType, SignInRequestType, RefreshTokenRequestType, RefreshTokenResponseType } from '@/schema/auth';
+import type { SignUpResponseType, SignUpRequestType, SignInResponseType, SignInRequestType, RefreshTokenRequestType, RefreshTokenResponseType } from '@/schema/auth';
 import httpClient from '.';
 
 export const signUp = async (signUpObj: SignUpRequestType): Promise<SignUpResponseType> => {
