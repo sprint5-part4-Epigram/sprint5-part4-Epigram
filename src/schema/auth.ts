@@ -7,7 +7,7 @@ export const SignUpRequest = z.object({
   passwordConfirmation: z.string(),
 });
 
-const User = z.object({
+const SignUpUser = z.object({
   id: z.number(),
   nickname: z.string(),
   teamId: z.string(),
@@ -18,7 +18,7 @@ const User = z.object({
 });
 
 export const SignUpResponse = z.object({
-  user: User,
+  user: SignUpUser,
 });
 
 export const SignInRequest = z.object({
@@ -26,26 +26,33 @@ export const SignInRequest = z.object({
   password: z.string(),
 });
 
+const SignInUser = z.object({
+  id: z.number(),
+  email: z.string().email(),
+  nickname: z.string(),
+  teamId: z.string(),
+  updatedAt: z.string(),
+  createdAt: z.string(),
+  image: z.string().nullable(),
+});
+
 export const SignInResponse = z.object({
   accessToken: z.string(),
   refreshToken: z.string(),
-  user: User,
+  user: SignInUser,
 });
 
-export const refreshTokenRequest = z.object({
+export const RefreshTokenRequest = z.object({
   refreshToken: z.string(),
 });
 
-export const refreshTokenResponse = z.object({
+export const RefreshTokenResponse = z.object({
   accessToken: z.string(),
 });
 
-
-
-export type User = z.infer<typeof User>;
 export type SignUpRequestType = z.infer<typeof SignUpRequest>;
 export type SignUpResponseType = z.infer<typeof SignUpResponse>;
 export type SignInRequestType = z.infer<typeof SignInRequest>;
 export type SignInResponseType = z.infer<typeof SignInResponse>;
-export type refreshTokenRequestType = z.infer<typeof refreshTokenRequest>;
-export type refreshTokenResponseType = z.infer<typeof refreshTokenResponse>;
+export type RefreshTokenRequestType = z.infer<typeof RefreshTokenRequest>;
+export type RefreshTokenResponseType = z.infer<typeof RefreshTokenResponse>;

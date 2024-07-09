@@ -1,6 +1,5 @@
+import { SignUpResponseType, SignUpRequestType, SignInResponseType, SignInRequestType, RefreshTokenRequestType, RefreshTokenResponseType } from '@/schema/auth';
 import httpClient from '.';
-
-import { SignUpResponseType, SignUpRequestType, SignInResponseType, SignInRequestType, refreshTokenRequestType, refreshTokenResponseType } from '@/schema/auth';
 
 export const signUp = async (signUpObj: SignUpRequestType): Promise<SignUpResponseType> => {
   const { email, nickname, password, passwordConfirmation } = signUpObj;
@@ -14,12 +13,7 @@ export const signIn = async (signInObj: SignInRequestType): Promise<SignInRespon
   return response.data;
 };
 
-export const refreshToken = async (signInObj: refreshTokenRequestType): Promise<refreshTokenResponseType> => {
-  const response = await httpClient.post('/auth/refresh-token', { refreshToken });
-  return response.data;
-};
-
-export const provider = async (signInObj: refreshTokenRequestType): Promise<refreshTokenResponseType> => {
+export const refreshAccessToken = async (refreshToken: RefreshTokenRequestType): Promise<RefreshTokenResponseType> => {
   const response = await httpClient.post('/auth/refresh-token', { refreshToken });
   return response.data;
 };
