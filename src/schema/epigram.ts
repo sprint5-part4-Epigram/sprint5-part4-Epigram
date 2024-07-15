@@ -7,7 +7,7 @@ const tags = z.object({
 
 export const EpigramsResponse = z.object({
   likeCount: z.number(),
-  tags: tags,
+  tags,
   writerId: z.number(),
   referenceUrl: z.string(),
   referenceTitle: z.string(),
@@ -30,7 +30,7 @@ export const GetEpigramsResponse = z.object({
 
 export const GetEpigramsTodayResponse = z.object({
   likeCount: z.number(),
-  tags: tags,
+  tags,
   writerId: z.number(),
   referenceUrl: z.string(),
   referenceTitle: z.string(),
@@ -46,7 +46,7 @@ export const GetEpigramsIdRequest = z.object({
 
 export const GetEpigramsIdResponse = z.object({
   likeCount: z.number(),
-  tags: tags,
+  tags,
   writerId: z.number(),
   referenceUrl: z.string(),
   referenceTitle: z.string(),
@@ -82,7 +82,7 @@ export const EpigramsLikeRequest = z.object({
 
 export const EpigramsLikeResponse = z.object({
   likeCount: z.number(),
-  tags: tags,
+  tags,
   writerId: z.number(),
   referenceUrl: z.string(),
   referenceTitle: z.string(),
