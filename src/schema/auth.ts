@@ -18,6 +18,8 @@ const SignUpUser = z.object({
 });
 
 export const SignUpResponse = z.object({
+  accessToken: z.string(),
+  refreshToken: z.string(),
   user: SignUpUser,
 });
 
